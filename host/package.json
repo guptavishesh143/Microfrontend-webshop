@@ -1,0 +1,33 @@
+{
+  "name": "host",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3001",
+    "dev:wrangler": "NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3001 --hostname wrangler.wbshop-test.aceturtle.com",
+    "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
+    "start": "next start -p 3001",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@module-federation/nextjs-mf": "^8.8.57",
+    "@reduxjs/toolkit": "^2.11.2",
+    "js-cookie": "^3.0.5",
+    "next": "^14.2.14",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.2.0",
+    "redux-persist": "^6.0.0",
+    "redux-persist-cookie-storage": "^1.0.0",
+    "webpack": "^5.105.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^25.3.5",
+    "@types/react": "^19.2.14",
+    "eslint": "^9",
+    "eslint-config-next": "^14.2.14",
+    "tailwindcss": "^4",
+    "typescript": "^5.9.3"
+  }
+}

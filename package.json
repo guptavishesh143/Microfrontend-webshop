@@ -1,0 +1,13 @@
+{
+  "name": "microfrontend-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run start --prefix host\" \"npm run start --prefix decide\" \"npm run start --prefix checkout\" \"npm run start --prefix blogs\"",
+    "dev": "concurrently \"npm run dev --prefix host\" \"npm run dev --prefix decide\" \"npm run dev --prefix checkout\" \"npm run dev --prefix blogs\"",
+    "dev:wrangler": "concurrently \"npm run dev:wrangler --prefix host\" \"npm run dev --prefix decide\" \"npm run dev --prefix checkout\" \"npm run dev --prefix blogs\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
