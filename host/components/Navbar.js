@@ -1,6 +1,49 @@
 import React from 'react';
 
 const Navbar = () => {
+  const navStyle = {
+    position: 'fixed',
+    top: '48px',
+    left: 0,
+    width: '100%',
+    backgroundColor: '#ffffff',
+    borderBottom: '1px solid #e5e7eb',
+    zIndex: 50,
+    height: '64px',
+    fontFamily: 'sans-serif'
+  };
+
+  const containerStyle = {
+    maxWidth: '1152px',
+    margin: '0 auto',
+    padding: '0 16px',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'between'
+  };
+
+  const logoStyle = {
+    fontSize: '20px',
+    fontWeight: 'bold',
+    color: '#4f46e5',
+    marginRight: 'auto'
+  };
+
+  const linksContainerStyle = {
+    display: 'flex',
+    gap: '16px'
+  };
+
+  const linkStyle = {
+    padding: '8px 12px',
+    fontSize: '14px',
+    fontWeight: 500,
+    color: '#4b5563',
+    textDecoration: 'none',
+    transition: 'color 0.2s ease'
+  };
+
   const links = [
     { name: 'Page 1 (Host)', url: 'http://localhost:3001' },
     { name: 'Page 2 (Decide)', url: 'http://localhost:3002' },
@@ -9,15 +52,17 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-12 left-0 w-full bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 z-50">
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="text-xl font-bold text-indigo-600 dark:text-indigo-400">MFE Demo</div>
-        <div className="flex gap-4">
+    <nav style={navStyle}>
+      <div style={containerStyle}>
+        <div style={logoStyle}>MFE Demo</div>
+        <div style={linksContainerStyle}>
           {links.map((link) => (
             <a
               key={link.name}
               href={link.url}
-              className="px-3 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              style={linkStyle}
+              onMouseOver={(e) => e.target.style.color = '#4f46e5'}
+              onMouseOut={(e) => e.target.style.color = '#4b5563'}
             >
               {link.name}
             </a>

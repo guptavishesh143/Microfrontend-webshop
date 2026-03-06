@@ -12,7 +12,7 @@ export default function Home() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-zinc-950">
       <Header />
       <Navbar />
-      <main className="flex flex-col items-center justify-center p-24 bg-white dark:bg-zinc-900 rounded-xl shadow-lg w-full max-w-2xl mt-32">
+      <main style={{ marginTop: '128px' }} className="flex flex-col items-center justify-center p-24 bg-white dark:bg-zinc-900 rounded-xl shadow-lg w-full max-w-2xl">
         <h1 className="text-4xl font-bold mb-4 text-black dark:text-white">Checkout Application (Page 3)</h1>
         <p className="text-lg mb-8 text-zinc-600 dark:text-zinc-400 text-center">
           Running on Port 3003. This page proves Redux works across apps!

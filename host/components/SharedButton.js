@@ -1,10 +1,35 @@
 import React from 'react';
 
-const SharedButton = ({ onClick, children, className = '' }) => {
+const SharedButton = ({ onClick, children, className = '', style = {} }) => {
+  const buttonStyle = {
+    padding: '12px 24px',
+    backgroundColor: '#4f46e5',
+    color: '#ffffff',
+    fontWeight: 600,
+    borderRadius: '8px',
+    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
+    fontFamily: 'sans-serif',
+    ...style
+  };
+
   return (
     <button
       onClick={onClick}
-      className={`px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 hover:shadow-lg transition-all active:scale-95 ${className}`}
+      style={buttonStyle}
+      className={className}
+      onMouseOver={(e) => {
+        e.target.style.backgroundColor = '#4338ca';
+        e.target.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+      }}
+      onMouseOut={(e) => {
+        e.target.style.backgroundColor = '#4f46e5';
+        e.target.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+      }}
+      onMouseDown={(e) => e.target.style.transform = 'scale(0.95)'}
+      onMouseUp={(e) => e.target.style.transform = 'scale(1)'}
     >
       {children || 'Shared Button'}
     </button>
