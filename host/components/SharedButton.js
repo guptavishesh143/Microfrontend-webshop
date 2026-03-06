@@ -3,7 +3,7 @@ import React from 'react';
 const SharedButton = ({ onClick, children, className = '', style = {} }) => {
   const buttonStyle = {
     padding: '12px 24px',
-    backgroundColor: '#4f46e5',
+    backgroundColor: 'var(--color-primary, #4f46e5)',
     color: '#ffffff',
     fontWeight: 600,
     borderRadius: '8px',
@@ -11,7 +11,7 @@ const SharedButton = ({ onClick, children, className = '', style = {} }) => {
     border: 'none',
     cursor: 'pointer',
     transition: 'all 0.2s ease',
-    fontFamily: 'sans-serif',
+    fontFamily: 'var(--font-family, sans-serif)',
     ...style
   };
 

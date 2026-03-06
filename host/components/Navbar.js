@@ -1,6 +1,10 @@
 import React from 'react';
+import { _publicPath, _env } from '../../mfe-shared/utils/urlConfigs';
 
 const Navbar = () => {
+  const env = {}; // Context or state could provide this
+  const argv = { name: 'wrangler' }; // Current brand
+
   const navStyle = {
     position: 'fixed',
     top: '48px',
@@ -10,7 +14,7 @@ const Navbar = () => {
     borderBottom: '1px solid #e5e7eb',
     zIndex: 50,
     height: '64px',
-    fontFamily: 'sans-serif'
+    fontFamily: 'var(--font-family, sans-serif)'
   };
 
   const containerStyle = {
@@ -20,13 +24,13 @@ const Navbar = () => {
     height: '100%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'between'
+    justifyContent: 'space-between'
   };
 
   const logoStyle = {
     fontSize: '20px',
     fontWeight: 'bold',
-    color: '#4f46e5',
+    color: 'var(--color-primary, #4f46e5)',
     marginRight: 'auto'
   };
 
@@ -45,10 +49,10 @@ const Navbar = () => {
   };
 
   const links = [
-    { name: 'Page 1 (Host)', url: 'http://localhost:3001' },
-    { name: 'Page 2 (Decide)', url: 'http://localhost:3002' },
-    { name: 'Page 3 (Checkout)', url: 'http://localhost:3003' },
-    { name: 'Page 4 (Blogs)', url: 'http://localhost:3004' },
+    { name: 'Home', url: _publicPath('host', env, argv) },
+    { name: 'Shop', url: _publicPath('decide', env, argv) },
+    { name: 'Checkout', url: _publicPath('checkout', env, argv) },
+    { name: 'Blogs', url: _publicPath('blogs', env, argv) },
   ];
 
   return (
@@ -61,7 +65,7 @@ const Navbar = () => {
               key={link.name}
               href={link.url}
               style={linkStyle}
-              onMouseOver={(e) => e.target.style.color = '#4f46e5'}
+              onMouseOver={(e) => e.target.style.color = 'var(--color-primary, #4f46e5)'}
               onMouseOut={(e) => e.target.style.color = '#4b5563'}
             >
               {link.name}

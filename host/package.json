@@ -12,22 +12,24 @@
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.8.57",
     "@reduxjs/toolkit": "^2.11.2",
+    "autoprefixer": "^10.4.27",
     "js-cookie": "^3.0.5",
+    "jsx-async-runtime": "^0.2.0",
     "next": "^14.2.14",
+    "postcss": "^8.5.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.2.0",
     "redux-persist": "^6.0.0",
     "redux-persist-cookie-storage": "^1.0.0",
+    "tailwindcss": "^3.4.19",
     "webpack": "^5.105.4"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^25.3.5",
     "@types/react": "^19.2.14",
-    "eslint": "^9",
+    "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.14",
-    "tailwindcss": "^4",
     "typescript": "^5.9.3"
   }
 }

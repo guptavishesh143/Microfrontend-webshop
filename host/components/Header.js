@@ -6,7 +6,7 @@ const Header = () => {
         top: 0,
         left: 0,
         width: '100%',
-        backgroundColor: '#4f46e5', // indigo-600
+        backgroundColor: 'var(--color-primary, #4f46e5)', // Use theme primary
         color: '#ffffff',
         boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         zIndex: 60,
@@ -14,7 +14,7 @@ const Header = () => {
         display: 'flex',
         alignItems: 'center',
         padding: '0 24px',
-        fontFamily: 'sans-serif'
+        fontFamily: 'var(--font-family, sans-serif)'
     };
 
     const logoContainerStyle = {

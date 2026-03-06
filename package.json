@@ -2,12 +2,35 @@
   "name": "microfrontend-demo",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "concurrently \"npm run start --prefix host\" \"npm run start --prefix decide\" \"npm run start --prefix checkout\" \"npm run start --prefix blogs\"",
-    "dev": "concurrently \"npm run dev --prefix host\" \"npm run dev --prefix decide\" \"npm run dev --prefix checkout\" \"npm run dev --prefix blogs\"",
-    "dev:wrangler": "concurrently \"npm run dev:wrangler --prefix host\" \"npm run dev --prefix decide\" \"npm run dev --prefix checkout\" \"npm run dev --prefix blogs\""
+    "start": "concurrently \"npm run start --prefix host\" \"npm run start --prefix decide\" \"npm run start --prefix checkout\" \"npm run start --prefix blogs\" \"npm run start --prefix mfe-shared\"",
+    "dev": "concurrently \"npm run dev --prefix host\" \"npm run dev --prefix decide\" \"npm run dev --prefix checkout\" \"npm run dev --prefix blogs\" \"npm run dev --prefix mfe-shared\"",
+    "dev:wrangler": "concurrently \"npm run dev:wrangler --prefix host\" \"npm run dev --prefix decide\" \"npm run dev --prefix checkout\" \"npm run dev --prefix blogs\" \"npm run dev --prefix mfe-shared\"",
+    "build": "npm run sync-readme && npm run build:sequential",
+    "build:sequential": "npm run build --prefix mfe-shared && npm run build --prefix host && npm run build --prefix decide && npm run build --prefix checkout && npm run build --prefix blogs",
+    "sync-readme": "node scripts/sync-readme.js",
+    "predev": "npm run sync-readme",
+    "prebuild": "npm run sync-readme"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "host",
+    "blogs",
+    "checkout",
+    "decide",
+    "mfe-shared"
+  ],
+  "overrides": {
+    "ajv": "^8.12.0",
+    "ajv-keywords": "^5.1.0",
+    "webpack-sources": "3.2.3"
   }
 }
