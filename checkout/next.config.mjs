@@ -1,9 +1,18 @@
 import { NextFederationPlugin } from '@module-federation/nextjs-mf';
 import { _remote } from '../mfe-shared/utils/urlConfigs.js';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config, options) {
+    // Fix: resolve React from the root node_modules to avoid Module Federation
+    // "Cannot find module '../node_modules/react/jsx-runtime.js'" error
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      react: require.resolve('react'),
+      'react-dom': require.resolve('react-dom'),
+    };
     const env = process.env;
     const argv = { name: 'wrangler' };
 
